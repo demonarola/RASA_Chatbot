@@ -17,11 +17,16 @@ pip install -r requirements.txt
 
 # Running the test server:
 open 3 different terminal
+
 in 1 terminal :
+
     python app.py 
 
 in 2 terminal 
+
     rasa run actions
     
+    
 in 3 terminal
+
     rasa run -m models --enable-api --cors "*" --debug
