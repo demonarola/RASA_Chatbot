@@ -34,5 +34,5 @@ in 3 terminal
  ## screenshots
  
 <div align="center">
-    <img src="/screenshots/screen1.jpg" width="400px"</img> 
+    <img src="/static/Screenshot_2019-07-04 Pizz Bot.png"</img> 
 </div>
