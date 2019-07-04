@@ -1,0 +1,233 @@
+%YAML 1.1
+---
+actions:
+- action_add_more_pizza
+- action_customer_details
+- action_customize_pizza
+- utter_anything_else
+- utter_ask_customer_address
+- utter_ask_customer_name
+- utter_ask_customer_number
+- utter_ask_delivery_time
+- utter_ask_for_customise
+- utter_ask_for_more_pizza
+- utter_crust_type
+- utter_customise_option
+- utter_default
+- utter_greet
+- utter_how_many_pizza
+- utter_main_pizza_type
+- utter_non_veg_sub_pizza_type
+- utter_pizza_size
+- utter_placed_order
+- utter_slots_values
+- utter_topping_type
+- utter_veg_sub_pizza_type
+- utter_wrong_customer_number
+entities:
+- cheese_details
+- crust_details
+- customer_address
+- customer_name
+- customer_number
+- customize
+- customize_details
+- delivery_time
+- num_of_pizza
+- pizza_size
+- pizza_sub_type
+- pizza_type
+- toppings_details
+forms:
+- customer_form
+intents:
+- mood_deny
+- greet
+- pizza_details
+- customer_details
+- how_many_pizza
+- request_customer:
+    use_entities: false
+slots:
+  cheese_details:
+    type: text
+  crust_details:
+    type: text
+  customer_address:
+    type: unfeaturized
+  customer_name:
+    type: unfeaturized
+  customer_number:
+    type: unfeaturized
+  customize:
+    type: categorical
+    values:
+    - 'yes'
+    - 'no'
+  customize_details:
+    type: categorical
+    values:
+    - crust-type
+    - toppings
+    - add extra cheese
+  delivery_time:
+    type: unfeaturized
+  num_of_pizza:
+    auto_fill: false
+    type: text
+  pizza_size:
+    type: categorical
+    values:
+    - regular
+    - medium
+    - large
+  pizza_sub_type:
+    type: text
+  pizza_type:
+    type: categorical
+    values:
+    - veg.pizza
+    - non-veg.pizza
+  requested_slot:
+    type: unfeaturized
+  toppings_details:
+    type: text
+templates:
+  utter_anything_else:
+  - buttons:
+    - payload: done
+      title: done
+    - payload: /pizza_details{"customize_details":"Crust-type"}
+      title: Crust type
+    - payload: /pizza_details{"customize_details":"Toppings"}
+      title: Toppings
+    - payload: /pizza_details{"customize_details":"Add Extra Cheese"}
+      title: Add Extra Cheese
+    text: anything else?
+  utter_ask_customer_address:
+  - text: your address
+  utter_ask_customer_name:
+  - text: Your name?
+  utter_ask_customer_number:
+  - text: Your mobile number
+  utter_ask_delivery_time:
+  - buttons:
+    - payload: /pizza_details{"delivery_time":"in-30-min)"}
+      title: ASAP (30 min)
+    - payload: /pizza_details{"delivery_time":"in-an-hour"}
+      title: in an hour
+    - payload: /pizza_details{"delivery_time":"in-1.5-hour"}
+      title: in 1.5 hour
+    - payload: /pizza_details{"delivery_time":"in-2-hour"}
+      title: in 2 hour
+    - payload: /pizza_details{"delivery_time":"in-3-hour"}
+      title: in 3 hour
+    text: When do you want it?
+  utter_ask_for_customise:
+  - buttons:
+    - payload: /pizza_details{"customize":"Yes"}
+      title: 'yes'
+    - payload: /pizza_details{"customize":"No"}
+      title: 'No'
+    text: Do you want to customise your pizza? Crust type, Toppings, Cheese etc.
+  utter_ask_for_more_pizza:
+  - buttons:
+    - payload: 'yes'
+      title: 'yes'
+    - payload: 'No'
+      title: 'No'
+    text: Do you want to add more pizza to your order?
+  utter_crust_type:
+  - buttons:
+    - payload: /pizza_details{"crust_details":"Classic Hand Tossed"}
+      title: Classic Hand Tossed
+    - payload: /pizza_details{"crust_details":"Wheat Thin Crust"}
+      title: Wheat Thin Crust
+    - payload: /pizza_details{"crust_details":"Cheese Burst"}
+      title: Cheese Burst
+    - payload: /pizza_details{"crust_details":"Classic Fresh Pan Pizza"}
+      title: Fresh Pan Pizza
+    - payload: /pizza_details{"crust_details":"Italian Crust"}
+      title: Italian Crust
+    - payload: /pizza_details{"crust_details":"Double Cheese Crunch"}
+      title: Double Cheese Crunch
+    text: pick a crust type
+  utter_customise_option:
+  - buttons:
+    - payload: /pizza_details{"customize_details":"Crust-type"}
+      title: Crust type
+    - payload: /pizza_details{"customize_details":"Toppings"}
+      title: Toppings
+    - payload: /pizza_details{"customize_details":"Add Extra Cheese"}
+      title: Add Extra Cheese
+    - payload: done
+      title: done
+    text: cool, select the option you want to change
+  utter_default:
+  - text: Sorry, I didn’t understand that
+  utter_greet:
+  - text: Hello! Welcome to PizzaCenter.
+  utter_how_many_pizza:
+  - text: how many?
+  utter_main_pizza_type:
+  - buttons:
+    - payload: /pizza_details{"pizza_type":"Veg.Pizza"}
+      title: Veg.Pizza
+    - payload: /pizza_details{"pizza_type":"Non-Veg.Pizza"}
+      title: Non-Veg.Pizza
+    text: Hello! Welcome to PizzaCenter. What kind of pizza do you want?
+  utter_non_veg_sub_pizza_type:
+  - buttons:
+    - payload: /pizza_details{"pizza_sub_type":"cheese-and-pepperoni"}
+      title: cheese-and-pepperoni
+    - payload: /pizza_details{"pizza_sub_type":"chicken-dominator"}
+      title: chicken dominator
+    - payload: /pizza_details{"pizza_sub_type":"seventh-heaven"}
+      title: seventh heaven
+    text: Pick one 👇
+  utter_pizza_size:
+  - buttons:
+    - payload: /pizza_details{"pizza_size":"Regular"}
+      title: Regular
+    - payload: /pizza_details{"pizza_size":"Medium"}
+      title: Medium
+    - payload: /pizza_details{"pizza_size":"Large"}
+      title: Large
+    text: How large?
+  utter_placed_order:
+  - text: Awesome. Your order is placed. You'll soon get a call for confirmation
+  utter_slots_values:
+  - text: "YOUR DETAILS :\n - Name : {customer_name}\n - Address : {customer_address}\n\
+      \ - Number : {customer_number}"
+  utter_submit:
+  - text: Thanks.
+  utter_topping_type:
+  - buttons:
+    - payload: /pizza_details{"toppings_details":"Black Olive"}
+      title: Black Olive
+    - payload: /pizza_details{"toppings_details":"Onion"}
+      title: Onion
+    - payload: /pizza_details{"toppings_details":"Crisp Capsicum"}
+      title: Crisp Capsicum
+    - payload: /pizza_details{"toppings_details":"Paneer"}
+      title: Paneer
+    - payload: /pizza_details{"toppings_details":"Mushroom"}
+      title: Mushroom
+    - payload: /pizza_details{"toppings_details":"Golden Corn"}
+      title: Golden Corn
+    - payload: /pizza_details{"toppings_details":"Italian Crust"}
+      title: Italian Crust
+    - payload: /pizza_details{"toppings_details":"Fresh Tomato"}
+      title: Fresh Tomato
+    text: select one or more toppings
+  utter_veg_sub_pizza_type:
+  - buttons:
+    - payload: /pizza_details{"pizza_sub_type":"Veg-Extravaganza"}
+      title: Veg Extravaganza
+    - payload: /pizza_details{"pizza_sub_type":"Chefs-veg-wonders"}
+      title: Chefs veg wonders
+    - payload: /pizza_details{"pizza_sub_type":"cloud-9"}
+      title: cloud 9
+    text: Pick one 👇
+  utter_wrong_customer_number:
+  - text: mobile number should be a positive integer, please try again

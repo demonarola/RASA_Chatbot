@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+   <link rel="stylesheet" href="/table.css">
+   </head>
+   <body>
+      <h3>
+        Customer Details
+      </h3>
+      <hr/>
+      <table>
+         <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Number</th>
+                <th>Veg / Non.veg</th>
+                <th>sub type</th>
+                <th>customize</th>
+                <th>size</th>
+                <th>Time</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for usr in User %}
+                <tr>
+                    <td data-column="id">{{ usr.id }}</td>
+                    <td data-column="Name">{{ usr.customer_name }}</td>
+                    <td data-column="Address">{{ usr.customer_address }}</td>
+                    <td data-column="Number">{{ usr.customer_number }}</td>
+                    <td data-column="Type">{{ usr.pizza_type }}</td>
+                    <td data-column="Sub Type">{{ usr.pizza_sub_type }}</td>
+                    <td data-column="Customeize">{{ usr.customize_details }}</td>
+                    <td data-column="Size">{{ usr.pizza_size }}</td>
+                    <td data-column="Del. Time">{{ usr.delivery_time }}</td>
+                </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </body>
+</html>
