@@ -30,3 +30,9 @@ in 2 terminal
 in 3 terminal
 
     rasa run -m models --enable-api --cors "*" --debug
+   
+ ## screenshots
+ 
+<div align="center">
+    <img src="/screenshots/screen1.jpg" width="400px"</img> 
+</div>
