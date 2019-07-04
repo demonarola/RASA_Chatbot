@@ -91,7 +91,7 @@ $(document).ready(function () {
 	function send(text, uniq) {
 		$.ajax({
 			type: 'POST',
-			url: 'http://192.168.100.122:5005/webhooks/rest/webhook', //  RASA API
+			url: 'http://localhost:5005/webhooks/rest/webhook', //  RASA API
 			processData: true,
 			crossOrigin: true,
 			dataType: 'json',
