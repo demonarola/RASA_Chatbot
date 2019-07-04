@@ -1,12 +1,12 @@
 # Chatbot using RASA
+
 ## What is RASA?
 Rasa is an open source machine learning framework for building contextual AI assistants and chatbots.
 Rasa has two main modules:
-NLU for understanding user messages
-Core for holding conversations and deciding what to do next
+1. NLU for understanding user messages
+2. Core for holding conversations and deciding what to do next
+
 # PROJECT INTRODUCTION   :
-    Name            : 1_RASA_PIZZABOT    
-    ENV_NAME        : env_pizzabot
     Python Version  : Python 3.7.2
     RASA Version    : 1.0.6
     RASA-SDK        : 1.0.0  
